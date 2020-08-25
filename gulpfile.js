@@ -27,6 +27,7 @@ gulp.task('jekyll-rebuild', gulp.series(['jekyll-build'], function (done) {
 	done();
 }));
 
+
 /*
  * Build the jekyll site and launch browser-sync
  */
@@ -86,6 +87,7 @@ gulp.task('watch', function() {
   gulp.watch('src/fonts/**/*.{tff,woff,woff2}', gulp.series(['fonts']));
   gulp.watch('src/img/**/*.{jpg,png,gif}', gulp.series(['imagemin']));
   gulp.watch(['*html', '_includes/*html', '_layouts/*.html'], gulp.series(['jekyll-rebuild']));
+  gulp.watch(['*yml'], gulp.series(['jekyll-rebuild']));
 });
 
 gulp.task('default', gulp.series(['js', 'sass', 'fonts', 'browser-sync', 'watch']));
